@@ -16,7 +16,6 @@ export default function CreatePost() {
 
   async function onSubmit(data) {
     try {
-      // Obtener el ID del usuario desde localStorage
       const id = window.localStorage.getItem('id');
 
       if (!id) {
@@ -24,10 +23,8 @@ export default function CreatePost() {
         return;
       }
 
-      // Asignar el ID al campo name
       data.name = id;
 
-      // Llamar a la función createPost con el objeto data
       const response = await createPost(data);
 
       if (response) {
@@ -65,10 +62,26 @@ export default function CreatePost() {
         <input
           className='border-2 border-gray-300 rounded-lg p-2'
           type='text'
-          placeholder='Description'
-          {...register('description', { required: true })}
+          placeholder='Title'
+          {...register('title', { required: true })}
         />
         {errors.description && <span>This field is required</span>}
+        <input
+          className='border-2 border-gray-300 rounded-lg p-2'
+          type='text'
+          placeholder='Location'
+          {...register('location', { required: true })}
+        />
+        {errors.description && <span>This field is required</span>}
+        <input
+          className='border-2 border-gray-300 rounded-lg p-2'
+          type='text'
+          placeholder='Work'
+          {...register('work', { required: true })}
+        />
+        {errors.description && <span>This field is required</span>}
+       
+        
         <input
           className='border-2 border-gray-300 rounded-lg p-2'
           type='date'
@@ -172,8 +185,15 @@ export default function CreatePost() {
           className='border-2 border-gray-300 rounded-lg p-2'
           type='text'
           placeholder='Image'
-          {...register('image', { required: true })}
+          {...register('image')}
         />
+        <input
+          className='border-2 border-gray-300 rounded-lg p-2'
+          type='text'
+          placeholder='Description'
+          {...register('description', { required: true })}
+        />
+        {errors.description && <span>This field is required</span>}
 
         <button
           className='bg-blue-500 text-white border-2 border-blue-600 rounded-lg p-2 disabled:bg-gray-500 disabled:border-gray-600 disabled:cursor-not-allowed'

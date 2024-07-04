@@ -1,28 +1,32 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 export default function NavBar() {
-  const router = useRouter()
-  const [isAuth, setIsAuth] = useState(false)
+  const router = useRouter();
+  const [isAuth, setIsAuth] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Verificar si hay token y id en localStorage al cargar el componente
-    const token = window.localStorage.getItem('token')
-    const id = window.localStorage.getItem('id')
-    setIsAuth(!!token && !!id)
-  }, [])
+    const token = window.localStorage.getItem('token');
+    const id = window.localStorage.getItem('id');
+    setIsAuth(!!token && !!id);
+  }, []);
 
   function handleLogout() {
-    window.localStorage.removeItem('token')
-    window.localStorage.removeItem('id')
-    setIsAuth(false) // Actualizar el estado de autenticación
-    router.push('/')
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('id');
+    setIsAuth(false); 
+    router.push('/');
+  }
+
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
   }
 
   return (
     <header className='bg-[#ffffff] shadow-[0_1px_1px] shadow-[#181a1b1a] t-0 l-0 r-0 h-[56px] z-[100] block'>
-      <nav className='max-w-[1280px] p-[0_1rem] m-auto flex items-center relative h-[56px] '>
+      <nav className='max-w-[1280px] p-[0_1rem] m-auto flex items-center relative h-[56px]'>
         <div>
           <img
             className='w-12 h-10'
@@ -45,7 +49,7 @@ export default function NavBar() {
           </div>
         </div>
 
-        <div className='flex items-center justify-center h-full w-[14.5em] gap-[3%] ml-auto'>
+        <div className='hidden md:flex items-center justify-center h-full w-[14.5em] gap-[3%] ml-auto'>
           {!isAuth && (
             <>
               <Link
@@ -67,7 +71,7 @@ export default function NavBar() {
           )}
           {isAuth && (
             <button
-              className='border-[1px] border-[#0000ff] rounded-md text-[#0000ff]  text-center h-[80%] w-[67%] hover:bg-blue-700
+              className='border-[1px] border-[#0000ff] rounded-md text-[#0000ff] text-center h-[80%] w-[67%] hover:bg-blue-700
               hover:underline hover:decoration-white
               hover:text-white
               hover:border hover:border-blue-700'
@@ -77,7 +81,53 @@ export default function NavBar() {
             </button>
           )}
         </div>
+
+        <div className='flex md:hidden items-center ml-auto'>
+          <button onClick={toggleMenu} className='p-2'>
+            <img
+              src='https://icon-library.com/images/hamburger-menu-icon-white/hamburger-menu-icon-white-6.jpg'
+              alt='Menu'
+              className='w-6 h-6'
+            />
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className='md:hidden absolute top-full right-0 w-full bg-white shadow-md'>
+            <div className='flex flex-col items-center p-4'>
+              {!isAuth && (
+                <>
+                  <Link
+                    className='mb-2 w-full text-center p-2 bg-blue-500 text-white rounded'
+                    href='loginPage'
+                    onClick={toggleMenu}
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    className='w-full text-center p-2 bg-green-500 text-white rounded'
+                    href='createAcount'
+                    onClick={toggleMenu}
+                  >
+                    Create account
+                  </Link>
+                </>
+              )}
+              {isAuth && (
+                <button
+                  className='w-full text-center p-2 bg-red-500 text-white rounded'
+                  onClick={() => {
+                    handleLogout();
+                    toggleMenu();
+                  }}
+                >
+                  Logout
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
     </header>
-  )
+  );
 }
