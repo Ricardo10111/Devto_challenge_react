@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { getPostById } from '@/lib/api'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 export default function IdxAsideR() {
   const router = useRouter()
@@ -19,7 +20,7 @@ export default function IdxAsideR() {
       })
   }, [id])
 
-  const formattedDate = new Date(post.date).toLocaleDateString()
+  const formattedDate = new Date(post.join).toLocaleDateString()
 
   return (
     <main className='hidden h-dvh w-full lg:block lg:mr-[70px] lg:max-w-[400px]'>
@@ -27,7 +28,7 @@ export default function IdxAsideR() {
         <div className='grid gap-4 pb-4 break-words'>
           <div className=' border-t-[2rem] p-4 pt-0 gap-4 grid'>
             <div className='-mt-4'>
-              <a className='flex' href=''>
+              <Link className='flex' href=''>
                 <span className='m-2 shrink-0 w-12 h-12'>
                   <img
                     className='h-full w-full rounded-full object-cover border-2 border-gray-300'
@@ -41,7 +42,38 @@ export default function IdxAsideR() {
                     {post.name?.name}
                   </span>
                 </div>
-              </a>
+              </Link>
+            </div>
+            <div>
+              <button className='w-full border bg-cu5 text-white rounded-md h-10'>
+                Follow
+              </button>
+            </div>
+            <div className='text-[#575757]'>
+              
+                Few things are as exciting as getting new knowledge and skills
+                in something you are absolutely fascinated by! ✨
+              
+            </div>
+            <div>
+              <div className='text-xs font-bold uppercase text-[#525252]'>LOCATION</div>
+              <div className='text-[#575757]'>{post.location}</div>
+            </div>
+            <div>
+              <div className='text-xs font-bold uppercase text-[#525252]'>EDUCATION</div>
+              <div className='text-[#575757]'>
+                Moglestu Business School and Barbu IB School of Economics
+              </div>
+            </div>
+            <div >
+              <div className='text-xs font-bold uppercase text-[#525252]'>WORK</div>
+              <div className='text-[#575757]'>{post.work}</div>
+            </div>
+            <div>
+              <div className='text-xs font-bold uppercase text-[#525252]'>
+                JOINED
+              </div>
+              <div className='text-[#575757]'>{formattedDate}</div>
             </div>
           </div>
         </div>

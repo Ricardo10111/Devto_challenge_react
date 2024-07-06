@@ -143,22 +143,24 @@ export default function LoginPage() {
                   Login
                 </button>
               </form>
-              <div className='flex ml-20 mt-7 w-[400px]'>
-                <span className='text-center text-sm text-black/40'>
-                  By signing in, you are agreeing to our privacy policy, terms
-                  of use and code of conduct.
+              <div className='mt-6 text-center'>
+              <span className='block text-sm text-black/40 italic'>
+              By signing in, you are agreeing to our privacy policy, terms of use and code of conduct.
+
+              </span>
+              <hr className='h-[1px] mt-6 mb-6 bg-cu9 border-none' />
+              <div className='flex justify-center items-center gap-2'>
+                <span className='font-extralight'>
+                New to DEV Community?
                 </span>
-              </div>
-              <hr className='h-[1px] mt-[32px] mb-[32px] bg-cu9 border-none' />
-              <div className='flex ml-40 mt-7 w-[400px] gap-2'>
-                <span className='font-extralight'>New to DEV Community?</span>
                 <Link
                   href='/signupPage'
                   className='text-blue-700 font-extralight'
                 >
-                  Create acount
+                  Create account.
                 </Link>
               </div>
+            </div>
             </div>
           </div>
         </div>

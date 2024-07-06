@@ -43,7 +43,7 @@ export default function LoginPage() {
               />
             ))}
             <div className='mt-6 text-center'>
-              <span className='block text-sm text-black/40'>
+              <span className='block text-sm text-black/40 italic'>
                 By signing in, you are agreeing to our privacy policy, terms of use and code of conduct.
               </span>
               <hr className='h-[1px] mt-6 mb-6 bg-cu9 border-none' />

@@ -20,7 +20,7 @@ export default function LeftMainContent() {
   };
 
   return (
-    <div className="flex justify-center md:-mr-20">
+    <div className="flex justify-end md:justify-center w-full">
       <IdxAsideL reactionCounts={reactionCounts} handleEmojiClick={handleEmojiClick} />
       <CenterPost reactionCounts={reactionCounts} />
     </div>

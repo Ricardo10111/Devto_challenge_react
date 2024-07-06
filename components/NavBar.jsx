@@ -1,33 +1,33 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 export default function NavBar() {
-  const router = useRouter();
-  const [isAuth, setIsAuth] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter()
+  const [isAuth, setIsAuth] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
-    const token = window.localStorage.getItem('token');
-    const id = window.localStorage.getItem('id');
-    setIsAuth(!!token && !!id);
-  }, []);
+    const token = window.localStorage.getItem('token')
+    const id = window.localStorage.getItem('id')
+    setIsAuth(!!token && !!id)
+  }, [])
 
   function handleLogout() {
-    window.localStorage.removeItem('token');
-    window.localStorage.removeItem('id');
-    setIsAuth(false); 
-    router.push('/');
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('id')
+    setIsAuth(false)
+    router.push('/')
   }
 
   function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
     <header className='bg-[#ffffff] shadow-[0_1px_1px] shadow-[#181a1b1a] t-0 l-0 r-0 h-[56px] z-[100] block'>
       <nav className='max-w-[1280px] p-[0_1rem] m-auto flex items-center relative h-[56px]'>
-        <div>
+        <div className='flex mb-2'>
           <img
             className='w-12 h-10'
             src='https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png'
@@ -43,7 +43,7 @@ export default function NavBar() {
                 placeholder='Search...'
               />
               <button className='absolute pt-0 pb-0 mt-0 left-auto top-[1px] right-[1px] bottom-[1px] p-2 bg-transparent text-[rgba(59,73,223,0.1)] inline-block font-inherit text-center border-none break-normal hover:bg-[rgba(59,73,223,0.1)] hover:text-[rgba(59,73,223,0.1)] hover:rounded-[0.375rem] hover:border-[rgba(59,73,223,0.1)] hover:cursor-pointer'>
-                <img src='http://127.0.0.1:5500/logos_svg/search.svg' alt='' />
+                <img src='/search.svg' alt='' />
               </button>
             </div>
           </div>
@@ -53,16 +53,13 @@ export default function NavBar() {
           {!isAuth && (
             <>
               <Link
-                className='text-center pt-2 w-[27%] h-[80%]  hover:bg-[rgba(59,73,223,0.1)] hover:border hover:border-[rgba(59,73,223,0.1)] hover:rounded-md hover:text-blue-500 hover:underline hover:decoration-blue-500'
+                className='text-center pt-2 w-[27%] h-[80%] hover:bg-[rgba(59,73,223,0.1)] hover:border hover:border-[rgba(59,73,223,0.1)] hover:rounded-md hover:text-blue-500 hover:underline hover:decoration-blue-500'
                 href='loginPage'
               >
                 Log in
               </Link>
               <Link
-                className='border-[1px] border-[#0000ff] rounded-md text-[#0000ff] pt-2 text-center h-[80%] w-[67%] hover:bg-blue-700
-                hover:underline hover:decoration-white
-                hover:text-white
-                hover:border hover:border-blue-700'
+                className='border-[1px] border-[#0000ff] rounded-md text-[#0000ff] pt-2 text-center h-[80%] w-[67%] hover:bg-blue-700 hover:underline hover:decoration-white hover:text-white hover:border hover:border-blue-700'
                 href='signupPage'
               >
                 Create account
@@ -71,10 +68,7 @@ export default function NavBar() {
           )}
           {isAuth && (
             <button
-              className='border-[1px] border-[#0000ff] rounded-md text-[#0000ff] text-center h-[80%] w-[67%] hover:bg-blue-700
-              hover:underline hover:decoration-white
-              hover:text-white
-              hover:border hover:border-blue-700'
+              className='border-[1px] border-[#0000ff] rounded-md text-[#0000ff] text-center h-[80%] w-[67%] hover:bg-blue-700 hover:underline hover:decoration-white hover:text-white hover:border hover:border-blue-700'
               onClick={handleLogout}
             >
               Logout
@@ -82,10 +76,10 @@ export default function NavBar() {
           )}
         </div>
 
-        <div className='flex md:hidden items-center ml-auto'>
+        <div className='flex md:hidden items-center ml-auto z-20'>
           <button onClick={toggleMenu} className='p-2'>
             <img
-              src='https://icon-library.com/images/hamburger-menu-icon-white/hamburger-menu-icon-white-6.jpg'
+              src='/hamburger_icon_143010.svg'
               alt='Menu'
               className='w-6 h-6'
             />
@@ -93,7 +87,7 @@ export default function NavBar() {
         </div>
 
         {isMenuOpen && (
-          <div className='md:hidden absolute top-full right-0 w-full bg-white shadow-md'>
+          <div className='md:hidden absolute top-full right-0 w-full bg-white shadow-md z-30'>
             <div className='flex flex-col items-center p-4'>
               {!isAuth && (
                 <>
@@ -106,7 +100,7 @@ export default function NavBar() {
                   </Link>
                   <Link
                     className='w-full text-center p-2 bg-green-500 text-white rounded'
-                    href='createAcount'
+                    href='signupPage'
                     onClick={toggleMenu}
                   >
                     Create account
@@ -117,8 +111,8 @@ export default function NavBar() {
                 <button
                   className='w-full text-center p-2 bg-red-500 text-white rounded'
                   onClick={() => {
-                    handleLogout();
-                    toggleMenu();
+                    handleLogout()
+                    toggleMenu()
                   }}
                 >
                   Logout
@@ -129,5 +123,5 @@ export default function NavBar() {
         )}
       </nav>
     </header>
-  );
+  )
 }
