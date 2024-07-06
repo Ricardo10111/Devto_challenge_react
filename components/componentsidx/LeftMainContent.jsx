@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import IdxAsideL from './IdxAsideL';// Ajusta la ruta según tu estructura de archivos
+import IdxAsideL from './IdxAsideL';
 import CenterPost from './IdxCenter';
 
 const initialReactions = [

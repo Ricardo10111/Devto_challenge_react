@@ -76,11 +76,13 @@ export default function CardsAside() {
             alt={card.title}
             className='w-[24px] h-[24px]'
           />
-          <p className="font-light text-custom-black text-[16px] hover:text-[#0000ff] ">{card.title}</p>
+          <p className='font-light text-custom-black text-[16px] hover:text-[#0000ff] '>
+            {card.title}
+          </p>
         </div>
       ))}
 
-      <h2 className="mt-11 text-2xl font-bold font-gill">Others</h2>
+      <h2 className='mt-11 text-2xl font-bold font-gill'>Others</h2>
 
       {secondCards.map((card, idx) => (
         <div
@@ -92,7 +94,9 @@ export default function CardsAside() {
             alt={card.title}
             className='w-[24px] h-[24px]'
           />
-          <p className="font-light text-custom-black text-[16px] hover:text-[#0000ff] ">{card.title}</p>
+          <p className='font-light text-custom-black text-[16px] hover:text-[#0000ff] '>
+            {card.title}
+          </p>
         </div>
       ))}
     </div>

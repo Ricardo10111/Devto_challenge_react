@@ -9,7 +9,6 @@ export default function AsideL() {
   const [hasToken, setHasToken] = useState(false)
 
   useEffect(() => {
-    // Solo se ejecuta en el cliente
     if (typeof window !== 'undefined') {
       setHasToken(!!window.localStorage.getItem('token'))
     }
