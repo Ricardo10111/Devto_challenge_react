@@ -119,10 +119,11 @@ export default function CreatePost() {
           <option value='' disabled>
             Select an option
           </option>
+          <option value='♥️'>♥️</option>
+          <option value='🦄'>🦄</option>
+          <option value='😲'>😲</option>
+          <option value='🙌🏻'>🙌🏻</option>
           <option value='🔥'>🔥</option>
-          <option value='🚀'>🚀</option>
-          <option value='⚡️'>⚡️</option>
-          <option value='🤯'>🤯</option>
         </select>
         {errors.reactions && <span>This field is required</span>}
         <select
@@ -133,10 +134,11 @@ export default function CreatePost() {
           <option value='' disabled>
             Select an option
           </option>
+          <option value='♥️'>♥️</option>
+          <option value='🦄'>🦄</option>
+          <option value='😲'>😲</option>
+          <option value='🙌🏻'>🙌🏻</option>
           <option value='🔥'>🔥</option>
-          <option value='🚀'>🚀</option>
-          <option value='⚡️'>⚡️</option>
-          <option value='🤯'>🤯</option>
         </select>
         {errors.reactions2 && <span>This field is required</span>}
         <select
@@ -147,10 +149,11 @@ export default function CreatePost() {
           <option value='' disabled>
             Select an option
           </option>
+          <option value='♥️'>♥️</option>
+          <option value='🦄'>🦄</option>
+          <option value='😲'>😲</option>
+          <option value='🙌🏻'>🙌🏻</option>
           <option value='🔥'>🔥</option>
-          <option value='🚀'>🚀</option>
-          <option value='⚡️'>⚡️</option>
-          <option value='🤯'>🤯</option>
         </select>
         {errors.reactions3 && <span>This field is required</span>}
         <select
@@ -161,10 +164,11 @@ export default function CreatePost() {
           <option value='' disabled>
             Select an option
           </option>
+          <option value='♥️'>♥️</option>
+          <option value='🦄'>🦄</option>
+          <option value='😲'>😲</option>
+          <option value='🙌🏻'>🙌🏻</option>
           <option value='🔥'>🔥</option>
-          <option value='🚀'>🚀</option>
-          <option value='⚡️'>⚡️</option>
-          <option value='🤯'>🤯</option>
         </select>
         {errors.reactions4 && <span>This field is required</span>}
         <input

@@ -1,7 +1,6 @@
 import NavBar from '@/components/NavBar'
-import CenterPost from '@/components/componentsidx/IdxCenter'
-import IdxAsideL from '@/components/componentsidx/IdxAsideL'
 import IdxAsideR from '@/components/componentsidx/IdxAsideR'
+import LeftMainContent from '@/components/componentsidx/LeftMainContent'
 
 
 export default function PostDetail() {
@@ -9,8 +8,7 @@ export default function PostDetail() {
     <main className=''>
       <NavBar />
       <section className=' flex justify-center flex-nowrap  sm:mt-5'>
-        <IdxAsideL />
-          <CenterPost />
+        <LeftMainContent />
         <IdxAsideR />
       </section>
     </main>

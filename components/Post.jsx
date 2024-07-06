@@ -11,8 +11,6 @@ export default function PostsPage() {
   const [toDate, setToDate] = useState('')
   const router = useRouter()
 
-  
-
   useEffect(() => {
     getPosts()
       .then((posts) => {
@@ -46,19 +44,27 @@ export default function PostsPage() {
   }, [fromDate, toDate, posts])
 
   return (
-    <main className='h-dvh w-full m-0 flex flex-col p-4 md:p-3 mr-[34px] md:mr-[20px] md:w-[60%] lg:max-w-[39em]'>
+    <main className='h-dvh w-full m-0 flex flex-col -mt-3 p-3 ml-4 sm:ml-0 md:p-3 mr-[34px] md:mr-[20px] md:w-[60%] lg:max-w-[42rem]'>
       <Toaster position='top-right' richColors />
 
-      <section className='headerPosts flex flex-wrap ml-5  md:flex-wrap justify-start items-center gap-7'>
-        <div>
-          <span className='text-[1.17em] font-semibold'>Relevant</span>
-          <span className='p-[10px] bg-transparent text-[#404040] font-[300] text-[1.10em]'>Latest</span>
-          <span className='p-[10px] bg-transparent text-[#404040] font-[300] text-[1.10em]'>Top</span>
+      <section className='headerPosts flex flex-wrap ml-2  md:flex-wrap justify-start items-center'>
+        <div className='flex flex-row justify-center items-center gap-2'>
+          <div className='flex items-center justify-center text-[1.17em] font-semibold h-10 w-24 rounded-md hover:bg-cu4 hover:text-blue-700 cursor-pointer'>
+            Relevant
+          </div>
+          <div className=' flex items-center justify-center p-[10px] bg-transparent text-[#404040] font-[300] text-[1.10em] h-10 w-20 rounded-md hover:bg-cu4 hover:text-blue-700 cursor-pointer'>
+            Latest
+          </div>
+          <div className='flex justify-center items-center p-[10px] bg-transparent text-[#404040] font-[300] text-[1.10em] h-10 w-16 rounded-md hover:bg-cu4 hover:text-blue-700 cursor-pointer'>
+            Top
+          </div>
         </div>
         {/* // Los escondiste con hidden */}
         <div className=' flex-row gap-4 justify-center hidden'>
           <div className='flex flex-row gap-2'>
-            <label className='text-xs hidden md:block' htmlFor="">from</label>
+            <label className='text-xs hidden md:block' htmlFor=''>
+              from
+            </label>
             <input
               type='date'
               id='from'
@@ -69,7 +75,9 @@ export default function PostsPage() {
             />
           </div>
           <div className='flex flex-row gap-2'>
-            <label className='hidden md:block text-xs' htmlFor="">to</label>
+            <label className='hidden md:block text-xs' htmlFor=''>
+              to
+            </label>
             <input
               type='date'
               id='to'
@@ -78,7 +86,6 @@ export default function PostsPage() {
               value={toDate}
               onChange={(e) => setToDate(e.target.value)}
             />
-             
           </div>
         </div>
       </section>
@@ -89,14 +96,16 @@ export default function PostsPage() {
           <div
             key={`post-${idx}`}
             className='flex flex-col font-roboto bg-white border-2 border-gray-300 rounded-lg pb-5 m-2 relative w-full mb-2.5 gap-4'
-            onClick={()=> {router.push(`/${post._id}`)}}
+            onClick={() => {
+              router.push(`/${post._id}`)
+            }}
           >
             <img
               className='overflow-clip box-content w-full'
               src={post.image}
               alt={post.image}
             />
-            <div className='flex justify-start items-center flex-row flex-nowrap w-[14em] ml-4' >
+            <div className='flex justify-start items-center flex-row flex-nowrap w-[14em] ml-4'>
               <img
                 className='h-8 w-8 rounded-full'
                 src={post.name.profilePicture}
@@ -111,35 +120,43 @@ export default function PostsPage() {
                 </span>
               </div>
             </div>
-            <div className='flex justify-start ml-[75px]'>
-              <h2 className='text-[30px] font-bold hover:text-[#3b49df] cursor-pointer' onClick={()=> {router.push(`/${post._id}`)}}>
+            <div className='flex justify-start ml-6'>
+              <h2
+                className='text-[20px] md:text-[30px] font-bold hover:text-[#3b49df] cursor-pointer'
+                onClick={() => {
+                  router.push(`/${post._id}`)
+                }}
+              >
                 {post.title}
               </h2>
             </div>
 
-            <div className='flex flex-row flex-nowrap gap-[2px] ml-[75px]'>
+            <div className='flex flex-row flex-nowrap md:gap-[2px] ml-[6px]'>
               <a
-                className='flex justify-center items-center text-[14.5px] font-light rounded-md h-[30px] w-[120px] hover:cursor-pointer hover:bg-blue-100 hover:border hover:border-blue-600 hover:rounded-md'
+                className='flex justify-center items-center text-[12px] md:text-[14.5px] font-light rounded-md h-6 md:h-[30px] w-[90px] md:w-[120px] hover:cursor-pointer hover:bg-blue-100 hover:border hover:border-blue-600 hover:rounded-md'
                 href=''
               >
-                <span className='text-lime-500'>#</span>{post.hashtags}
+                <span className='text-lime-500'>#</span>
+                {post.hashtags}
               </a>
               <a
-                className='flex justify-center items-center text-[14.5px] font-light rounded-md h-[30px] w-[120px] hover:cursor-pointer hover:bg-pink-100 hover:border hover:border-pink-400 hover:rounded-md'
+                className='flex justify-center items-center text-[12px] md:text-[14.5px] font-light rounded-md h-6 md:h-[30px] w-[90px] md:w-[120px] hover:cursor-pointer hover:bg-pink-100 hover:border hover:border-pink-400 hover:rounded-md'
                 href=''
               >
-                <span className='text-pink-400'>#</span>{post.hashtags2}
+                <span className='text-pink-400'>#</span>
+                {post.hashtags2}
               </a>
               <a
-                className='flex justify-center items-center text-[14.5px] font-light rounded-md h-[30px] w-[120px] hover:cursor-pointer hover:bg-indigo-100 hover:border hover:border-indigo-900 hover:rounded-md'
+                className='flex justify-center items-center text-[12px] md:text-[14.5px] font-light rounded-md h-6 md:h-[30px] w-[90px] md:w-[120px] hover:cursor-pointer hover:bg-indigo-100 hover:border hover:border-indigo-900 hover:rounded-md'
                 href=''
               >
-                <span className='text-blue-400'>#</span>{post.hashtags3}
+                <span className='text-blue-400'>#</span>
+                {post.hashtags3}
               </a>
             </div>
 
-            <div className='containerDown flex flex-row ml-[65px]'>
-              <div className='iconsRactionsContainer flex justify-center items-center pl-[10px] border-2 border-white rounded-[10px] h-[40px] w-[200px]'>
+            <div className='containerDown flex flex-row ml-[20px] '>
+              <div className='iconsRactionsContainer flex justify-center items-center md:gap-2 pl-[10px] border-2 border-white rounded-[10px] h-[40px] w-[200px]'>
                 <div className='iconsreaction flex justify-center items-center w-[40px] h-full'>
                   <span className='mr-[-2px] mb-[5px] h-6 w-6 rounded-[15px] border-2 border-custom-white bg-cu7'>
                     {post.reactions}
@@ -155,26 +172,33 @@ export default function PostsPage() {
                   </span>
                 </div>
                 <div className='containerreaction flex justify-center items-center w-[60%] h-full'>
+                <div className='flex justify-center items-center gap-1'>
                   <span className='text-[13.5px] text-[#404040] font-light'>
-                    {post.numberOfReactions} reactions
+                    {post.numberOfReactions}
                   </span>
+                  <span className='hidden lg:block text-[13.5px] text-[#404040] font-light'>comments</span>
+                </div>
                 </div>
               </div>
 
-              <div className='comentsContainer flex justify-center items-center h-[40px] w-[150px] border-2 border-white rounded-[10px]'>
-                <img
-                  src='http://127.0.0.1:5500/logos_svg/comments.svg'
-                  alt=''
-                />
-                <span className='text-[13.5px] text-[#404040] font-light'>{post.numberOfComments} comments</span>
+              <div className='comentsContainer flex justify-center items-center h-[40px] lg:w-[150px] border-2 border-white rounded-[10px]'>
+                <img src='/comments.svg' alt='' />
+                <div className='flex justify-center items-center gap-1'>
+                  <span className='text-[13.5px] text-[#404040] font-light'>
+                    {post.numberOfComments}
+                  </span>
+                  <span className='hidden lg:block text-[13.5px] text-[#404040] font-light'>comments</span>
+                </div>
               </div>
 
-              <div className='flex justify-center items-center ml-auto mr-[30px] gap-4'>
-                <div>
+              <div className='flex justify-center items-center ml-auto mr-[30px] gap-1 w-28'>
+                <div className=''>
                   <span className='text-xs font-light'>4 min read</span>
                 </div>
-                logo
-                <div><img src="" alt="" /></div>
+
+                <div className=''>
+                  <img src='/save.svg' alt='' />
+                </div>
               </div>
             </div>
           </div>

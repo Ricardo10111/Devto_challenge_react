@@ -4,21 +4,22 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Toaster, toast } from 'sonner'
 import clsx from 'clsx'
-import NavBar from '@/components/NavBar'
-import ButtonsSign from '@/components/ButtonsSign'
-import Link from 'next/link'
-// import SignUpButtons from '@/components/SignUpButtons'
-// import Apple from '@/components/logos/AppleLogo'
-// import GoogleLogo from '@/components/logos/GoogleLogo'
+import SignUpButtons from "@/components/SignUpButtons";
 
-// const buttons = [
-//   {image: Apple , title: 'Sign up with Apple'},
-//   {image: GoogleLogo, title: 'Sign up with Google'},
-//   {image: '/images/email.png', title: 'Sign up with Email'}
-// ]
+import Link from 'next/link'
+
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
+
+  const buttons = [
+    {image: '/apple_dark.svg', title: 'Continue with Apple'},
+    {image: '/facebookColor.svg', title: 'Continue with Facebook'},
+    {image: '/forem.svg', title: 'Continue with Forem'},
+    {image: '/github.svg', title: 'Continue with GitHum'},
+    {image: '/google.svg', title: 'Continue with Google'},
+    {image: '/x.svg', title: 'Continue Twitter (X)'},
+]
 
   const {
     register,
@@ -52,17 +53,14 @@ export default function LoginPage() {
     }
   }
 
-  // const handleShowPassword = () => {
-  //   setShowPassword(!showPassword)
-  // }
+
 
   return (
     <main>
       <Toaster position='top-right' richColors />
-      <NavBar />
       <section className='flex justify-center items-center flex-col gap-4 w-full min-h-dvh bg-white'>
-        <div className='rounded-md p-8 pt-6 m-auto md:w-[640px]'>
-          <div className='flex flex-col justify-center items-center gap-3'>
+        <div className='rounded-md p-6 pt-4 w-full max-w-[600px] bg-white'>
+          <div className='flex flex-col justify-center items-center gap-3 mb-6'>
             <img
               className='w-[60px] h-[48px]'
               src='https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png'
@@ -75,9 +73,14 @@ export default function LoginPage() {
               DEV Community is a community of 1,707,784 amazing developers
             </span>
           </div>
-          <div>
-            <ButtonsSign />
-
+          <div className='flex flex-col gap-3'>
+            
+            {
+              buttons.map((button, index) => (
+                <SignUpButtons key={index} image={button.image} title={button.title} />
+              ))  
+            }
+            
             <div>
               <div className='relative text-center m-7'>
                 <hr className='h-[1px] mt-[32px] mb-[32px] bg-cu9 border-none' />
@@ -117,17 +120,7 @@ export default function LoginPage() {
                     {errors.password.message}
                   </span>
                 )}
-                {/* <span
-                  className='text-xs text-white/50 cursor-pointer hover:text-white'
-                  onClick={handleShowPassword}
-                >
-                  {showPassword ? '🙈 Hide password' : '🐵 Show password'}
-                </span>
-                {errors.root?.credentials && (
-                  <p className='text-red-500 text-sm'>
-                    {errors.root.credentials.message}
-                  </p>
-                )} */}
+                
 
                 <div className='flex flex-row justify-between'>
                   <div className='flex flex-row gap-3'>

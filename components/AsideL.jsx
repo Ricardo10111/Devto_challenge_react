@@ -24,7 +24,7 @@ export default function AsideL() {
   }
 
   return (
-    <aside className='hidden h-dvh w-full md:max-w-[300px] lg:max-w-[275px] lg:ml-[70px] md:block'>
+    <aside className='hidden h-dvh w-full md:max-w-[300px] lg:max-w-[230px] lg:ml-[10px] md:block'>
       <section className='flex flex-col gap-[2.3rem] rounded-[10px] min-h-[15em] w-[95%] p-[15px] bg-[#ffffff] shadow-[#282c2d0d] mb-10'>
         <div className='relative p-[1px] w-full max-h-[20em]'>
           <h2 className='text-xl font-bold font-gill'>

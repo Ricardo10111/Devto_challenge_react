@@ -63,7 +63,7 @@ export default function NavBar() {
                 hover:underline hover:decoration-white
                 hover:text-white
                 hover:border hover:border-blue-700'
-                href='createAcount'
+                href='signupPage'
               >
                 Create account
               </Link>

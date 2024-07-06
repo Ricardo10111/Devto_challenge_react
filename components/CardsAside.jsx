@@ -1,82 +1,82 @@
 export default function CardsAside() {
   const cards = [
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/home.svg',
+      imagen: '/home.svg',
       title: 'Home'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/reading-list.svg',
+      imagen: '/reading-list.svg',
       title: 'Readin List'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/potcast.svg',
+      imagen: '/potcast.svg',
       title: 'Potcast'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/videos.svg',
+      imagen: '/videos.svg',
       title: 'Videos'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/tags.svg',
+      imagen: '/tags.svg',
       title: 'Tags'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/FAQ.svg',
+      imagen: '/FAQ.svg',
       title: 'FAQ'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/forem-Shop.svg',
+      imagen: '/forem-shop.svg',
       title: 'Forem Shop'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/advertise.svg',
+      imagen: '/advertise.svg',
       title: 'Advertise on DEV'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/about.svg',
+      imagen: 'about.svg',
       title: 'About'
     },
     {
-      imagen: '	http://127.0.0.1:5500/logos_svg/contact.svg',
+      imagen: '/contact.svg',
       title: 'Contact'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/guides.svg',
+      imagen: '/guides.svg',
       title: 'Guides'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/software-comparisons.svg',
+      imagen: 'software-comparisons.svg',
       title: 'Software comparisons'
     }
   ]
 
   const secondCards = [
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/code.svg',
+      imagen: 'code.svg',
       title: 'Code of comparisons'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/privacy.svg',
+      imagen: '/privacy.svg',
       title: 'Privacy Policy'
     },
     {
-      imagen: 'http://127.0.0.1:5500/logos_svg/terms.svg',
+      imagen: '/terms.svg',
       title: 'Terms of use'
     }
   ]
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col '>
       {cards.map((card, idx) => (
         <div
           key={idx}
-          className='flex flex-row items-center p-[5px] gap-3 hover:bg-[#3b49df1a] hover:underline hover:text-[#0000ff] rounded-md cursor-pointer'
+          className='flex flex-row items-center gap-1 p-[5px] hover:bg-[#3b49df1a] hover:underline hover:text-[#0000ff] rounded-md cursor-pointer h-11'
         >
           <img
             src={card.imagen}
             alt={card.title}
             className='w-[24px] h-[24px]'
           />
-          <p>{card.title}</p>
+          <p className="font-light text-custom-black text-[16px] hover:text-[#0000ff] ">{card.title}</p>
         </div>
       ))}
 
@@ -85,14 +85,14 @@ export default function CardsAside() {
       {secondCards.map((card, idx) => (
         <div
           key={idx}
-          className='flex flex-row items-center p-[5px] gap-3 hover:bg-[#3b49df1a] hover:underline hover:text-[#0000ff] rounded-md cursor-pointer'
+          className='flex flex-row items-center p-[5px] gap-3 hover:bg-[#3b49df1a] hover:underline hover:text-[#0000ff] rounded-md cursor-pointer h-11'
         >
           <img
             src={card.imagen}
             alt={card.title}
             className='w-[24px] h-[24px]'
           />
-          <p>{card.title}</p>
+          <p className="font-light text-custom-black text-[16px] hover:text-[#0000ff] ">{card.title}</p>
         </div>
       ))}
     </div>

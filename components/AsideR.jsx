@@ -38,7 +38,7 @@ const cardAside2 = [
 
 export default function AsideR() {
   return (
-    <aside className='hidden h-dvh w-full lg:block lg:mr-[70px] lg:max-w-[400px]'>
+    <aside className='hidden h-dvh w-full lg:block lg:mr-[10px] lg:max-w-[340px]'>
       <section className='rounded-md text-[#404040] shadow-[#1717170D] min-w-0 bg-white'>
         <header className='p-[0.75rem_1rem] border-b border-custom-gray'>
           <h3 className='text-[1.25rem] font-semibold '>
