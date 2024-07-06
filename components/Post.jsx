@@ -19,7 +19,6 @@ export default function PostsPage() {
         )
         setPosts(sortedPosts)
         setFilteredPosts(sortedPosts)
-        console.log('posts:', posts)
       })
       .catch((error) => {
         toast.error('Error to get posts')

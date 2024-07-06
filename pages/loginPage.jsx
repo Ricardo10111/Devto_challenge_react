@@ -32,8 +32,6 @@ export default function LoginPage() {
   async function onSubmit(data) {
     try {
       const { token, id } = await login(data.email, data.password)
-      console.log('token:', token)
-      console.log('id:', id)
       if (token && id) {
         window.localStorage.setItem('token', token)
         window.localStorage.setItem('id', id)

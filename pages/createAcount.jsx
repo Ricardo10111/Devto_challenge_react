@@ -33,7 +33,6 @@ export default function CreateAcount() {
         return response.json()
       })
       .then((json) => {
-        console.log('Response json:', json)
         if (json?.data) {
           setUser(json.data)
           toast.success('User created successfully')
